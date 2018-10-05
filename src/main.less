@@ -1,0 +1,109 @@
+.clearfix() {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+.kanban-board {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  background-color: fade(lightblue, 30%);
+  box-sizing: border-box;
+  padding: 10px;
+  padding-bottom: 20px;
+  height: 100vh;
+}
+
+.columns-list {
+  display: flex;
+  height: 100%;
+}
+
+.column {
+  background-color: white;
+  width: 200px;
+  margin-right: 10px;
+  box-shadow: 0 3px 5px #bbb;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .column__delete,
+    .add-button_card {
+      opacity: 1;
+    }
+  }
+}
+
+.column__title {
+  color: #444;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.column__delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  transition-duration: 0.3s;
+  transition-property: opacity, background-color;
+  cursor: pointer;
+
+  &:hover {
+    background: fade(lightcoral, 50%);
+  }
+}
+
+.cards-list {
+  padding: 10px;
+}
+
+.no-cards {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: lightyellow;
+  padding: 20px 15px;
+  box-shadow: 1px 3px 5px #ccc;
+  margin-bottom: 15px;
+}
+
+.add-button {
+  align-self: flex-start;
+  background: transparent;
+  border: 2px dashed #aaa;
+  border-radius: 5px;
+  color: #666;
+  font-size: 14px;
+  padding: 20px 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: ease 0.3s background-color;
+
+  &:hover {
+    background-color: #cfc;
+  }
+
+  &_column {
+    width: 200px;
+  }
+
+  &_card {
+    width: 100%;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+  }
+}
