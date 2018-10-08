@@ -1,12 +1,23 @@
 import createApi from './createApi';
-import stream from 'mithril/stream';
+import stream, { Stream } from 'mithril/stream';
 
-const api = createApi('cards');
+export interface ICard {
+  id: number;
+  title: string;
+  columnId: number;
+}
+
+interface INewCard {
+  title: string;
+  columnId: number;
+}
+
+const api = createApi<ICard>('cards');
 
 const Cards = {
-  all: stream([]),
+  all: stream<ICard[]>([]),
 
-  byColumnId(columnId) {
+  byColumnId(columnId: number): Stream<ICard[]> {
     return Cards.all.map(all => all.filter(c => c.columnId === columnId));
   },
 
@@ -15,17 +26,17 @@ const Cards = {
     Cards.all(response.data);
   },
 
-  async create(card) {
+  async create(card: INewCard) {
     const response = await api.post(card)();
     Cards.all(Cards.all().concat(response));
   },
 
-  async delete(card) {
+  async delete(card: ICard) {
     await api.delete(card.id);
     Cards.all(Cards.all().filter(c => c.id !== card.id));
   },
 
-  async moveToColumn(card, columnId) {
+  async moveToColumn(card: ICard, columnId: number) {
     if (card.columnId === columnId) return;
     const newCard = {
       ...card,
