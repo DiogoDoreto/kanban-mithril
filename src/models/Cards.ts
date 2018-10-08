@@ -7,10 +7,7 @@ export interface ICard {
   columnId: number;
 }
 
-interface INewCard {
-  title: string;
-  columnId: number;
-}
+type INewCard = Pick<ICard, Exclude<keyof ICard, 'id'>>;
 
 const api = createApi<ICard>('cards');
 

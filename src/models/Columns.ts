@@ -6,9 +6,7 @@ export interface IColumn {
   title: string;
 }
 
-interface INewColumn {
-  title: string;
-}
+type INewColumn = Pick<IColumn, Exclude<keyof IColumn, 'id'>>;
 
 const api = createApi<IColumn>('columns');
 
