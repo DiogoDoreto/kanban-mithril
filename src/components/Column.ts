@@ -2,6 +2,7 @@ import m from 'mithril';
 import Columns, { IColumn } from '../models/Columns';
 import CardList from './CardList';
 import Cards, { ICard } from './../models/Cards';
+import ColumnTitle from './ColumnTitle';
 
 interface Attrs {
   column: IColumn;
@@ -25,7 +26,7 @@ const Column: m.Component<Attrs> = {
         },
       },
       [
-        m('.column__title', column.title),
+        m(ColumnTitle, { column }),
         m(
           'button.column__delete',
           {

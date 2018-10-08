@@ -36,14 +36,18 @@ const Cards = {
     Cards.all(Cards.all().filter(c => c.id !== card.id));
   },
 
+  async update(card: ICard) {
+    Cards.all(Cards.all().map(c => (c.id === card.id ? card : c)));
+    await api.put(card)(card.id);
+  },
+
   async moveToColumn(card: ICard, columnId: number) {
     if (card.columnId === columnId) return;
     const newCard = {
       ...card,
       columnId,
     };
-    Cards.all(Cards.all().map(c => (c.id === newCard.id ? newCard : c)));
-    await api.put(newCard)(newCard.id);
+    await Cards.update(newCard);
   },
 };
 

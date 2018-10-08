@@ -25,6 +25,11 @@ const Columns = {
     Columns.all(Columns.all().concat(response));
   },
 
+  async update(column: IColumn) {
+    Columns.all(Columns.all().map(c => (c.id === column.id ? column : c)));
+    await api.put(column)(column.id);
+  },
+
   async delete(column: IColumn) {
     await api.delete(column.id);
     Columns.all(Columns.all().filter(c => c.id !== column.id));

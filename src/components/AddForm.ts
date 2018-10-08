@@ -1,4 +1,6 @@
 import m from 'mithril';
+import handleKey from '~utils/handleKey';
+import focusAndSelect from '~utils/focusAndSelect';
 
 interface Attrs {
   onsubmit: (title: string) => void;
@@ -18,15 +20,11 @@ const AddForm: m.Component<Attrs, State> = {
           event.preventDefault();
           attrs.onsubmit(state.value);
         },
-        onkeydown: (event: KeyboardEvent) => {
-          if (event.key === 'Escape') {
-            attrs.oncancel();
-          }
-        },
+        onkeypress: handleKey({ Escape: attrs.oncancel }),
       },
       [
         m('input', {
-          autofocus: true,
+          oncreate: focusAndSelect,
           oninput: m.withAttr('value', v => (state.value = v)),
           value: state.value,
         }),
