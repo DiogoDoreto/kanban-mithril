@@ -6,15 +6,19 @@
   "scripts": {
     "build": "parcel build src/index.html --public-url=./",
     "start": "parcel src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^23.3.4",
+    "@types/mithril": "^1.1.13",
+    "jest": "^23.6.0",
     "less": "^3.8.1",
     "parcel": "^1.10.1",
     "sass": "^1.14.1",
+    "ts-jest": "^23.10.4",
     "typescript": "^3.1.1"
   },
   "dependencies": {

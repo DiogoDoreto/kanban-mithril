@@ -1,6 +1,6 @@
 import m from 'mithril';
-import handleKey from '~utils/handleKey';
-import focusAndSelect from '~utils/focusAndSelect';
+import handleKey from '../utils/handleKey';
+import focusAndSelect from '../utils/focusAndSelect';
 
 interface Attrs {
   onsubmit: (title: string) => void;

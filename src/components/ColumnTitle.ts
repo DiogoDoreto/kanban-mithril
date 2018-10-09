@@ -1,7 +1,7 @@
 import m from 'mithril';
 import Columns, { IColumn } from '../models/Columns';
-import handleKey from '~utils/handleKey';
-import focusAndSelect from '~utils/focusAndSelect';
+import handleKey from '../utils/handleKey';
+import focusAndSelect from '../utils/focusAndSelect';
 
 interface Attrs {
   column: IColumn;

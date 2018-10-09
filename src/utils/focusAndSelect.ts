@@ -1,6 +1,8 @@
-import m from 'mithril';
+interface InputVNode {
+  dom: any;
+}
 
-function focusAndSelect(vnode: m.VnodeDOM) {
+function focusAndSelect(vnode: InputVNode) {
   const node = vnode.dom as HTMLInputElement;
   node.focus();
   node.select();
