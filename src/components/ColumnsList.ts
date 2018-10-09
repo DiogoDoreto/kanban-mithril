@@ -3,7 +3,7 @@ import Columns from '../models/Columns';
 import AddButton from './AddButton';
 import Column from './Column';
 
-const ColumnsList = {
+const ColumnsList: m.Component = {
   view() {
     return m(
       '.columns-list',

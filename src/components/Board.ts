@@ -3,7 +3,7 @@ import Columns from '../models/Columns';
 import ColumnsList from './ColumnsList';
 import Cards from '../models/Cards';
 
-const Board = {
+const Board: m.Component = {
   oninit() {
     Columns.loadAll();
     Cards.loadAll();
