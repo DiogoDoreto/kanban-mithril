@@ -1,8 +1,10 @@
+type PartialKeyboardEvent = Pick<KeyboardEvent, 'key'>;
+
 interface EventKeyMap {
-  [key: string]: (event: KeyboardEvent) => void;
+  [key: string]: (event: PartialKeyboardEvent) => void;
 }
 
-const handleKey = (keyMap: EventKeyMap) => (event: KeyboardEvent) => {
+const handleKey = (keyMap: EventKeyMap) => (event: PartialKeyboardEvent) => {
   const action = keyMap[event.key];
   if (action) action(event);
 };
