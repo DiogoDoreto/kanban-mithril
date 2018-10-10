@@ -31,7 +31,8 @@ const AddButton: m.Component<Attrs, State> = {
           state.isAdding = true;
         },
       },
-      ['+ Add new ', attrs.itemType],
+      '+ Add new ',
+      attrs.itemType,
     );
   },
 };

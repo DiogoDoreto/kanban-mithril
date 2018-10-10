@@ -12,12 +12,16 @@ const Card: m.Component<Attrs> = {
       {
         key: card.id,
         ondragstart: (event: DragEvent) => {
-          event.dataTransfer.setData('text/plain', card.title);
-          event.dataTransfer.setData('kanban/card', JSON.stringify(card));
-          event.dataTransfer.effectAllowed = 'copyMove';
+          if (event.dataTransfer) {
+            event.dataTransfer.setData('text/plain', card.title);
+            event.dataTransfer.setData('kanban/card', JSON.stringify(card));
+            event.dataTransfer.effectAllowed = 'copyMove';
+          }
         },
         ondragend: (event: DragEvent) => {
-          event.dataTransfer.clearData();
+          if (event.dataTransfer) {
+            event.dataTransfer.clearData();
+          }
         },
       },
       card.title,

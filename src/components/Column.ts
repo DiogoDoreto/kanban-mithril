@@ -20,15 +20,19 @@ const Column: m.Component<Attrs, State> = {
         class: state.dragover ? 'column_dragover' : '',
         ondrop(event: DragEvent) {
           event.preventDefault();
-          const card: ICard = JSON.parse(
-            event.dataTransfer.getData('kanban/card'),
-          );
-          Cards.moveToColumn(card, column.id);
+          if (event.dataTransfer) {
+            const card: ICard = JSON.parse(
+              event.dataTransfer.getData('kanban/card'),
+            );
+            Cards.moveToColumn(card, column.id);
+          }
           state.dragover = false;
         },
         ondragover(event: DragEvent) {
           event.preventDefault();
-          event.dataTransfer.dropEffect = 'move';
+          if (event.dataTransfer) {
+            event.dataTransfer.dropEffect = 'move';
+          }
           state.dragover = true;
         },
         ondragexit(event: DragEvent) {
