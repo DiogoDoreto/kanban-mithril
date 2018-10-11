@@ -1,14 +1,14 @@
-jest.setMock("../CardList", "CardList");
-jest.setMock("../ColumnTitle", "ColumnTitle");
+jest.setMock('../CardList', 'CardList');
+jest.setMock('../ColumnTitle', 'ColumnTitle');
 
-import shallow from "../../../lib/mithril-shallow";
-import Column from "../Column";
-import { IColumn } from "../../models/Columns";
+import shallow from '../../../lib/mithril-shallow';
+import Column from '../Column';
+import { IColumn } from '../../models/Columns';
 
-test("it renders a column item", () => {
+test('it renders a column item', () => {
   const column: IColumn = {
     id: 1,
-    title: "In progress"
+    title: 'In progress',
   };
   const attrs = { column };
   const state = { dragover: false };

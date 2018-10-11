@@ -6,7 +6,9 @@
   "scripts": {
     "build": "parcel build src/index.html --public-url=./",
     "start": "parcel src/index.html",
-    "test": "jest --coverage"
+    "test": "npm run test:prettier && npm run test:jest",
+    "test:prettier": "prettier --ignore-path .gitignore --list-different \"**/*.{js,ts,json,less}\"",
+    "test:jest": "jest --coverage"
   },
   "keywords": [],
   "author": "",
