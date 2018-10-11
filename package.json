@@ -16,6 +16,7 @@
     "@types/mithril": "^1.1.13",
     "jest": "^23.6.0",
     "less": "^3.8.1",
+    "mithril-serializer": "^0.1.0",
     "parcel": "^1.10.1",
     "prettier": "^1.14.3",
     "sass": "^1.14.1",

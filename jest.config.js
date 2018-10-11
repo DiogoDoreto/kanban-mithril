@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  snapshotSerializers: ['./lib/mithril-serializer.js'],
+  snapshotSerializers: ['mithril-serializer'],
   coveragePathIgnorePatterns: ['<rootDir>/lib/', '/node_modules/'],
 };
